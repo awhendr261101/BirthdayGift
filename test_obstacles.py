@@ -26,3 +26,17 @@ def captured_output():
         yield sys.stdout, sys.stderr
     finally:
         sys.stdout, sys.stderr = old_out, old_err
+
+def run_unittests(test_filename):
+    """
+    Use this method to discover unittests at specified path, and run them
+    :param path:
+    :return: TestResult
+    """
+    import unittest
+    #TODO: redirect stderr to stdout for student unittests
+    loader = unittest.TestLoader()
+    suite = loader.loadTestsFromName(test_filename)
+
+    runner = unittest.TextTestRunner(stream=sys.stdout)
+    return runner.run(suite)
