@@ -215,30 +215,3 @@ def acute_angle_wall(a,b,c):
         x = obstacle
         list_obstacles.append((x, y1b))
         y1b += 4
-
-def is_position_blocked(x,y):
-    '''Checking if the  position does not have any obstacles'''
-
-    for i in list_obstacles:
-        if i[0] <= x <= (i[0] +4) and i[1] <= y <= (i[1] +4):
-            return True
-
-def is_path_blocked(x1,y1, x2, y2
-                    ):
-    '''Checking if the path does not have any obstacles and if the turtle can move past through.'''
-        
-    if x1 == x2:
-        if y1 > y2:
-            y1,y2 = y2,y1
-        for y in range(y1,y2+1):
-            if is_position_blocked(x1,y):
-                 return True
-
-    if y1 == y2:
-        if x1 > x2:
-            x1,x2 = x2,x1
-        for x in range(x1,x2+1):
-            if is_position_blocked(x,y1):
-                return True
-    
-    return False 
